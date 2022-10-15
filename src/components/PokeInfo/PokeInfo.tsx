@@ -5,10 +5,10 @@ import { PokeInfoContainer } from './PokeInfo.styles'
 
 interface IPokeInfo {
   data: IPoke | undefined
-  pokeId: string
+  isError: boolean
 }
 
-const PokeInfo = ({ data, pokeId }: IPokeInfo) => {
+const PokeInfo = ({ data, isError }: IPokeInfo) => {
   return (
     <PokeInfoContainer>
       {data?.id ? (
@@ -17,7 +17,7 @@ const PokeInfo = ({ data, pokeId }: IPokeInfo) => {
           <img src={data?.sprites.other['official-artwork'].front_default} />
           <h1>{data?.name}</h1>
         </>
-      ) : !data?.id && Number(pokeId) >= 1000 ? (
+      ) : isError ? (
         <ErrorMessage />
       ) : null}
     </PokeInfoContainer>

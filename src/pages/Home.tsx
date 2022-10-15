@@ -11,6 +11,7 @@ import isClick from '../atoms/isClick'
 
 const Home = () => {
   const [pokeId, setPokeId] = useState('')
+  const [isError, setIsError] = useState(false)
   const [isBtnClick, setIsBtnClick] = useRecoilState(isClick)
   const { isLoading, data } = useQuery(['pokemon', pokeId], API.getPokeMon, {
     enabled: isBtnClick,
@@ -18,7 +19,9 @@ const Home = () => {
       setIsBtnClick(false)
     },
     onError: e => {
-      console.log(e)
+      if (e) {
+        setIsError(true)
+      }
     },
   })
 
@@ -27,6 +30,7 @@ const Home = () => {
       currentTarget: { value },
     } = event
     setPokeId(value)
+    setIsError(false)
   }
 
   return (
@@ -36,7 +40,7 @@ const Home = () => {
       {isLoading && isBtnClick ? (
         <Loading />
       ) : (
-        <PokeInfo data={data} pokeId={pokeId} />
+        <PokeInfo isError={isError} data={data} />
       )}
     </Container>
   )
