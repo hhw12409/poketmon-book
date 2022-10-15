@@ -34,7 +34,6 @@ const ballRotation = keyframes`
 const BallImg = styled.img`
   width: 3rem;
   height: 3rem;
-  cursor: pointer;
   &:hover {
     animation: ${ballRotation} 0.5s infinite;
   }
