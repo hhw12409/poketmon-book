@@ -47,4 +47,4 @@
 
 ## 페이지 동작 영상
 
-https://user-images.githubusercontent.com/85764782/195992750-032f7c2a-43d1-4c01-9948-f8b8c5c235ae.mov
+https://user-images.githubusercontent.com/85764782/195993320-a871a558-2aec-4510-aa9b-2d0d1bf568f0.mov
